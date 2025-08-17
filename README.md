@@ -23,6 +23,13 @@ With this tool, you don’t need to copy `.apk` files manually onto your Android
 
 ---
 
+## Important Device Requirement
+
+⚠️ **USB Debugging must be enabled on your Android device.**  
+This tool communicates with devices via `adb`, which requires developer access. So, Make sure your device is authorized when first connected to your PC. You may see a prompt on your phone asking to allow USB debugging — choose **Allow**.
+
+---
+
 ## Important Notices
 
 To ensure proper functionality, please configure the following environment variables:
