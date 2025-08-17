@@ -60,7 +60,7 @@ To ensure proper functionality, please configure the following environment varia
 - **Registry_Config.reg** — Adds necessary registry settings for the utility
 - **Remote_Install.cmd** — Command-line tool to install APKs remotely and open Logcat
 - **Set Device on WiFi.cmd** — Command to configure your device for Wi-Fi installation
-  - You can set a shortcut to run this command, like `Ctrl + 1`...
+  - Tip: Create a shortcut with hotkeys (e.g., Ctrl+1) to run this script quickly
  
 ---
 
