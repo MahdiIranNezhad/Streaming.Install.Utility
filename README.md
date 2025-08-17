@@ -1,6 +1,7 @@
 # Streaming Install Utility
 
 Streaming Install Utility is a tool designed to simplify the installation, update, and downgrade of `.apk` files on Android devices directly from your PC.
+With this tool, you don’t need to copy `.apk` files manually onto your Android device for installation, Just one click and it’s done!
 
 ---
 
@@ -59,4 +60,18 @@ To ensure proper functionality, please configure the following environment varia
 - **Registry_Config.reg** — Adds necessary registry settings for the utility
 - **Remote_Install.cmd** — Command-line tool to install APKs remotely and open Logcat
 - **Set Device on WiFi.cmd** — Command to configure your device for Wi-Fi installation
-  - You can set a shortcut ot run this command, like Ctrl + 1...
+  - You can set a shortcut to run this command, like `Ctrl + 1`...
+ 
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome.  
+Please submit a pull request or open an issue to collaborate.  
+
+---
+
+## License
+
+This project is licensed under the MIT License.  
+See the `LICENSE` file for details.
