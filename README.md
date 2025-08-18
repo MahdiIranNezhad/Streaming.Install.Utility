@@ -17,8 +17,8 @@ With this tool, you don’t need to copy `.apk` files manually onto your Android
 ## Installation
 
 1. Download the `installer.zip` file
-2. Extract it to `C:\Users`
-3. Run the registry configuration file: `C:\Users\.StreamInstallUtility\Registry_Config.reg`
+2. Extract it to `C:\` drive
+3. Run the registry configuration file: `C:\.StreamInstallUtility\Registry_Config.reg`
 4. Installation is complete
 
 ---
