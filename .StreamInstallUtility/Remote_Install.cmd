@@ -72,18 +72,22 @@ if "%~1"=="logger" (
 
 echo.
 echo Installing %APK% on device `%target%`:
+
 adb -s %target% install -d -r %APK%
-if %ERRORLEVEL% neq 0 (
+set installResult=%ERRORLEVEL%
+
+:: Extract package name (needed for auto-launch)
+for /f "tokens=2 delims='='" %%a in ('^""%aapt_path%\aapt.exe" dump badging %APK% ^| findstr "package: name"^"') do (
+    set PACKAGE=%%~a
+    goto :gotPackage
+)
+
+:gotPackage
+set PACKAGE=%PACKAGE:"=%
+
+if %installResult% neq 0 (
     echo.
     echo X Installation failed, Checking for version downgrade issue... X
-
-    :: Extract package name from APK using aapt
-    for /f "tokens=2 delims='='" %%a in ('^""%aapt_path%\aapt.exe" dump badging %APK% ^| findstr "package: name"^"') do (
-        set PACKAGE=%%~a
-        goto :gotPackage
-    )
-
-    :gotPackage
     echo Found package name: %PACKAGE%
     echo Uninstalling previous version of "%PACKAGE%"...
     adb -s %target% uninstall %PACKAGE%
@@ -91,6 +95,12 @@ if %ERRORLEVEL% neq 0 (
     echo Re-installing %APK% freshly...
     adb -s %target% install %APK%
 )
+
+:: ---- Auto-open the app after successful install ----
+echo.
+echo Launching %PACKAGE% on device %target%...
+adb -s %target% shell monkey -p %PACKAGE% -c android.intent.category.LAUNCHER 1
+
 
 echo.
 choice /C yn /n /m "Do you want to open logcat on device `%target%`? (y/n)" 
